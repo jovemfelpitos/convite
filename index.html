@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jazz Night</title>
+  <title>Vicino</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Special+Elite&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Special+Elite&display=swap');
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: #050201;
-      color: #f6d48a;
+      background: #090403;
+      color: #f7dfb5;
       font-family: 'Special Elite', monospace;
       overflow: hidden;
     }
 
-    #start, #club {
+    #start, #restaurant {
       min-height: 100dvh;
       width: 100vw;
     }
 
     #start {
       background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.85)),
-        url("fundo-jazz-desktop.png");
+        linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.82)),
+        url("fundo-italiano-desktop.png");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -37,38 +37,43 @@
     }
 
     .intro h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(42px, 13vw, 72px);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 14vw, 86px);
       margin: 0;
-      color: #ffd77b;
+      color: #ffe1a3;
       letter-spacing: 2px;
     }
 
     .intro p {
-      margin: 14px 0 32px;
-      opacity: .85;
+      margin: 12px 0 32px;
+      opacity: .9;
       letter-spacing: 2px;
       font-size: 13px;
     }
 
     button {
-      background: rgba(0,0,0,.55);
-      color: #f6d48a;
-      border: 1px solid #c69236;
+      background: rgba(35, 9, 5, .62);
+      color: #f7dfb5;
+      border: 1px solid #b98245;
       padding: 15px 26px;
       border-radius: 999px;
       font-family: 'Special Elite', monospace;
       letter-spacing: 2px;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(198,146,54,.35);
+      box-shadow: 0 0 25px rgba(185,130,69,.35);
     }
 
-    #club {
+    button:hover {
+      background: #b98245;
+      color: #160805;
+    }
+
+    #restaurant {
       display: none;
       position: relative;
       background:
-        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.45)),
-        url("fundo-jazz-desktop.png");
+        linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.48)),
+        url("fundo-italiano-desktop.png");
       background-size: cover;
       background-position: center;
       overflow: hidden;
@@ -79,8 +84,8 @@
       top: 0;
       width: 100%;
       height: 54px;
-      background: rgba(5,2,1,.82);
-      border-bottom: 1px solid rgba(198,146,54,.55);
+      background: rgba(9,4,3,.84);
+      border-bottom: 1px solid rgba(185,130,69,.55);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -104,15 +109,15 @@
       content: "";
       position: absolute;
       inset: 18px;
-      background: #ffe19a;
+      background: #ffd58a;
       border-radius: 50%;
-      box-shadow: 0 0 22px #ffcf61, 0 0 45px rgba(255,207,97,.55);
+      box-shadow: 0 0 22px #ffc86b, 0 0 45px rgba(255,200,107,.55);
       animation: pulse 1.8s infinite;
     }
 
     .hotspot.found::after {
-      background: #8a5d22;
-      box-shadow: 0 0 12px rgba(255,207,97,.35);
+      background: #7b4a24;
+      box-shadow: 0 0 12px rgba(255,200,107,.35);
       opacity: .55;
     }
 
@@ -133,13 +138,13 @@
     }
 
     /* POSIÇÕES DESKTOP */
-    .sax { top: 37%; left: 3%; }
-    .frame { top: 38%; left: 16%; }
-    .logo { top: 23%; left: 53%; }
-    .clock { top: 15%; left: 78%; }
-    .wine { top: 38%; left: 91%; }
-    .bottle { top: 77%; left: 20%; }
-    .menu { top: 81%; left: 49%; }
+    .wine { top: 42%; left: 12%; }
+    .menu { top: 68%; left: 34%; }
+    .plate { top: 70%; left: 52%; }
+    .candle { top: 48%; left: 64%; }
+    .clock { top: 18%; left: 76%; }
+    .sign { top: 24%; left: 47%; }
+    .door { top: 50%; left: 86%; }
 
     .clue-box {
       position: fixed;
@@ -148,8 +153,8 @@
       transform: translateX(-50%);
       width: 92%;
       min-height: 104px;
-      background: rgba(5,2,1,.88);
-      border: 1px solid #c69236;
+      background: rgba(9,4,3,.9);
+      border: 1px solid #b98245;
       border-radius: 18px;
       padding: 18px 16px;
       text-align: center;
@@ -159,9 +164,9 @@
 
     .clue-box h2 {
       margin: 0 0 10px;
-      font-family: 'Playfair Display', serif;
-      color: #ffd77b;
-      font-size: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #ffe1a3;
+      font-size: 30px;
     }
 
     .clue-box p {
@@ -185,8 +190,8 @@
       bottom: 0;
       width: 100%;
       height: 52px;
-      background: rgba(5,2,1,.84);
-      border-top: 1px solid rgba(198,146,54,.55);
+      background: rgba(9,4,3,.86);
+      border-top: 1px solid rgba(185,130,69,.55);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -198,7 +203,7 @@
     }
 
     .final {
-      color: #fff0c7;
+      color: #fff0d0;
       font-size: 15px !important;
     }
 
@@ -206,45 +211,27 @@
     @media (max-width: 768px) {
       #start {
         background:
-          linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.85)),
-          url("fundo-jazz-mobile.png");
+          linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.82)),
+          url("fundo-italiano-mobile.png");
         background-size: cover;
         background-position: center top;
       }
 
-      #club {
+      #restaurant {
         background:
-          linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.45)),
-          url("fundo-jazz-mobile.png");
+          linear-gradient(rgba(0,0,0,.08), rgba(0,0,0,.48)),
+          url("fundo-italiano-mobile.png");
         background-size: cover;
         background-position: center top;
       }
 
-      .hotspot {
-        width: 66px;
-        height: 66px;
-      }
-
-      /* POSIÇÕES MOBILE */
-      .sax { top: 41%; left: 8%; }
-      .frame { top: 34%; left: 13%; }
-      .logo { top: 25%; left: 44%; }
-      .clock { top: 17%; left: 72%; }
-      .wine { top: 67%; left: 75%; }
-      .bottle { top: 84%; left: 14%; }
-      .menu { top: 92%; left: 47%; }
-
-      .clue-box {
-        bottom: 66px;
-        width: 92%;
-        min-height: 104px;
-        padding: 18px 16px;
-      }
-
-      .hint-btn {
-        right: 14px;
-        bottom: 128px;
-      }
+      .wine { top: 56%; left: 11%; }
+      .menu { top: 72%; left: 18%; }
+      .plate { top: 72%; left: 48%; }
+      .candle { top: 55%; left: 67%; }
+      .clock { top: 16%; left: 72%; }
+      .sign { top: 24%; left: 42%; }
+      .door { top: 42%; left: 80%; }
     }
 
     /* DESKTOP AJUSTADO */
@@ -273,7 +260,7 @@
       }
 
       .clue-box h2 {
-        font-size: 26px;
+        font-size: 34px;
       }
 
       .clue-box p {
@@ -297,41 +284,41 @@
 
 <body>
 
-  <audio id="jazzMusic" loop>
-    <source src="jazz.mp3" type="audio/mpeg">
+  <audio id="italianMusic" loop>
+    <source src="italian.mp3" type="audio/mpeg">
   </audio>
 
   <section id="start">
     <div class="intro">
-      <h1>Jazz Night</h1>
-      <p>uma noite foi reservada para nós dois.</p>
-      <button onclick="enterClub()">ENTRAR NO CLUBE</button>
+      <h1>Una Notte</h1>
+      <p>uma mesa foi reservada para nós dois.</p>
+      <button onclick="enterRestaurant()">ENTRAR</button>
     </div>
   </section>
 
-  <section id="club">
+  <section id="restaurant">
     <div class="topbar">
       <span>☰ CLIQUE NOS DETALHES</span>
-      <span>VOLUME ▮▮▮▮▮▮ ♫</span>
+      <span>RESERVA CONFIDENCIAL</span>
     </div>
 
-    <div class="hotspot sax" onclick="showClue('sax', this)"></div>
-    <div class="hotspot frame" onclick="showClue('frame', this)"></div>
-    <div class="hotspot logo" onclick="showClue('logo', this)"></div>
-    <div class="hotspot clock" onclick="showClue('clock', this)"></div>
     <div class="hotspot wine" onclick="showClue('wine', this)"></div>
-    <div class="hotspot bottle" onclick="showClue('bottle', this)"></div>
     <div class="hotspot menu" onclick="showClue('menu', this)"></div>
+    <div class="hotspot plate" onclick="showClue('plate', this)"></div>
+    <div class="hotspot candle" onclick="showClue('candle', this)"></div>
+    <div class="hotspot clock" onclick="showClue('clock', this)"></div>
+    <div class="hotspot sign" onclick="showClue('sign', this)"></div>
+    <div class="hotspot door" onclick="showClue('door', this)"></div>
 
     <button class="hint-btn" onclick="blinkHotspots()">MOSTRAR PISTAS</button>
 
     <div class="clue-box">
-      <h2>Explore o clube</h2>
-      <p>toque nos detalhes dourados da noite. cada um guarda uma pequena pista.</p>
+      <h2>Explore a noite</h2>
+      <p>toque nos detalhes dourados. cada um guarda uma parte do caminho.</p>
     </div>
 
     <div class="bottombar">
-      <span>NOW PLAYING: So What - Miles Davis</span>
+      <span>NOW PLAYING: Italian Dinner</span>
       <span id="counter">PISTAS: 0 / 7</span>
     </div>
   </section>
@@ -340,41 +327,41 @@
     const found = new Set();
 
     const clues = {
-      sax: {
-        title: "O som",
-        text: "onde o som não é fundo. é personagem."
+      wine: {
+        title: "O vinho",
+        text: "alguns brindes não são sobre o que está na taça. são sobre o que está prestes a ser dito."
       },
-      frame: {
-        title: "A lembrança",
-        text: "algumas noites parecem cena de filme antes mesmo de começarem."
+      menu: {
+        title: "O cardápio",
+        text: "nem toda escolha importante está escrita no menu. algumas a gente sente antes de entender."
       },
-      logo: {
-        title: "O nome",
-        text: "procure por um nome que também pertence a um homem que fez o jazz respirar."
+      plate: {
+        title: "A mesa",
+        text: "existe uma mesa esperando por nós. mas ela não foi reservada só para jantar."
+      },
+      candle: {
+        title: "A luz",
+        text: "luz baixa, conversa calma e aquele silêncio bom de quando o coração entende antes da boca."
       },
       clock: {
         title: "O horário",
-        text: "quando os ponteiros encontrarem o oito, a noite começa."
+        text: "quando o dia se aproximar das sete da noite, a próxima cena começa."
       },
-      wine: {
-        title: "O brinde",
-        text: "não é só sobre vinho. é sobre brindar algo que ainda não foi dito."
+      sign: {
+        title: "O nome",
+        text: "vicino quer dizer perto. e talvez essa seja a pista mais óbvia de todas."
       },
-      bottle: {
-        title: "O lugar",
-        text: "entre taças, luz baixa e música viva, existe uma mesa esperando por nós."
-      },
-      menu: {
-        title: "O convite",
-        text: "terça-feira, 05/05. vista algo bonito. o resto eu te conto no caminho."
+      door: {
+        title: "O caminho",
+        text: "terça-feira, 05/05. vista algo bonito. o resto eu te mostro no caminho."
       }
     };
 
-    function enterClub() {
+    function enterRestaurant() {
       document.getElementById("start").style.display = "none";
-      document.getElementById("club").style.display = "block";
+      document.getElementById("restaurant").style.display = "block";
 
-      const music = document.getElementById("jazzMusic");
+      const music = document.getElementById("italianMusic");
       music.volume = 0.42;
       music.play();
     }
@@ -412,10 +399,11 @@
       const box = document.querySelector(".clue-box");
 
       box.innerHTML = `
-        <h2>Miles Wine & Jazz Bar</h2>
+        <h2>Vicino - Cucina & Vino</h2>
         <p class="final">
-          terça-feira, 05/05 — 20:00.<br><br>
-          uma mesa, uma música, uma noite nossa.
+          terça-feira, 05/05 — 19:00.<br>
+          Guarulhos.<br><br>
+          uma mesa, uma noite, nós dois.
         </p>
       `;
     }
